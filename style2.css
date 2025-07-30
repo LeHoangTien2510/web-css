@@ -1,0 +1,72 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+header {
+  background-color: #ffcc00;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+header p {
+  font-style: italic;
+}
+
+.menu-section {
+  padding: 20px;
+  border-bottom: 2px solid #ccc;
+}
+
+.menu-section h2 {
+  font-weight: bold;
+  border-bottom: 2px solid #666;
+  padding-bottom: 5px;
+}
+
+/* Màu chữ theo danh mục */
+.starter h2 {
+  color: darkgreen;
+}
+
+.main-course h2 {
+  color: darkred;
+}
+
+.dessert h2 {
+  color: darkblue;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+/* Làm nổi bật món đặc biệt */
+.special {
+  border: 2px dashed red;
+  background-image: linear-gradient(to right, #fffbe6, #fff0f0);
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
