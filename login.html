@@ -1,72 +1,54 @@
-
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Đăng nhập | Cảm xúc cùng bé</title>
-  <link rel="stylesheet" href="login.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Đăng nhập | Cảm xúc cùng bé</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <div class="header" role="banner">
-      <div class="brand"><span class="dot" aria-hidden="true"></span> Cảm xúc cùng bé</div>
-      <div class="toggle">
-        <input id="ls2" type="checkbox" aria-label="Bật chế độ ít kích thích">
-        <label for="ls2">Chế độ ít kích thích</label>
-      </div>
+        <div class="brand"><span class="dot" aria-hidden="true"></span> Cảm xúc cùng bé</div>
+        <div class="toggle">
+            <input id="ls2" type="checkbox" aria-label="Bật chế độ ít kích thích">
+            <label for="ls2">Chế độ ít kích thích</label>
+        </div>
     </div>
 
     <main class="card hero" role="main">
-      <header class="auth-header">
-        <div class="kicker">Xin chào</div>
-        <h1 class="h1">Đăng nhập</h1>
-        <p class="sub">Giao diện nhất quán, ít lựa chọn để giảm tải nhận thức.</p>
-      </header>
+        <header class="auth-header">
+            <div class="kicker">Xin chào</div>
+            <h1 class="h1">Đăng nhập</h1>
+            <p class="sub">Giao diện nhất quán, ít lựa chọn để giảm tải nhận thức.</p>
+        </header>
 
-      <form id="loginForm" novalidate>
-        <div class="form-group">
-          <label class="label" for="email">Email</label>
-          <input class="input" id="email" name="email" type="email" autocomplete="email" required>
-        </div>
+        <form id="loginForm" novalidate>
+            <div class="form-group">
+                <label class="label" for="email">Email</label>
+                <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+            </div>
 
-        <div class="form-group">
-          <label class="label" for="password">Mật khẩu</label>
-          <input class="input" id="password" name="password" type="password" autocomplete="current-password" minlength="6" required>
-        </div>
+            <div class="form-group">
+                <label class="label" for="password">Mật khẩu</label>
+                <input class="input" id="password" name="password" type="password" autocomplete="current-password" minlength="6" required>
+            </div>
 
-        <div class="form-actions">
-          <button class="btn" type="submit">Đăng nhập</button>
-          <a class="btn ghost" href="signup.html">Tạo tài khoản</a>
-        </div>
+            <div class="form-actions">
+                <button class="btn" type="submit">Đăng nhập</button>
+                <a class="btn ghost" href="signup.html">Tạo tài khoản</a>
+            </div>
 
-        <p id="error" class="error" role="alert" style="display:none;"></p>
-      </form>
+            <p id="error" class="error" role="alert" style="display:none;"></p>
+        </form>
     </main>
 
     <p class="footer">© 2025 Cảm xúc cùng bé</p>
-  </div>
+</div>
 
-  <script>
-    const ls = document.getElementById('ls2');
-    ls.addEventListener('change', ()=>{
-      document.body.classList.toggle('low-stimulus', ls.checked);
-    });
+<!-- Lớp tuyết rơi rất nhẹ (tự tắt ở chế độ ít kích thích) -->
+<div id="snow" class="snow" aria-hidden="true"></div>
 
-    const form = document.getElementById('loginForm');
-    const err = document.getElementById('error');
-    form.addEventListener('submit', (e)=>{
-      err.style.display='none'; err.textContent='';
-      const email = form.email.value.trim(), pw = form.password.value.trim();
-      if(!email || !pw){
-        e.preventDefault();
-        err.textContent = 'Vui lòng điền đầy đủ thông tin. Không sao cả—chúng ta làm lại nhé.';
-        err.style.display='block'; return;
-      }
-      e.preventDefault();
-      alert('Đăng nhập (mẫu). Kết nối API backend để xác thực.');
-      window.location.href = 'homepage.html';
-    });
-  </script>
+<script src="login.js"></script>
 </body>
 </html>

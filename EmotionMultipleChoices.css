@@ -9,22 +9,32 @@
     --amber:#b45309; --amber-weak:#fef3c7; --amber-border:#fcd34d;
     --green:#16a34a; --green-weak:#dcfce7; --green-border:#86efac;
     --orange:#b45309; --orange-weak:#ffedd5; --orange-border:#fdba74;
+    --dur: 12s;              /* Fallback cho animation duration */
+    --delay: 0s;             /* Fallback cho delay */
+    --x: 0;                  /* Fallback cho translate x */
 }
+
 *{box-sizing:border-box} html,body{height:100%}
 body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text)}
+
 .app-bg{
     background: radial-gradient(1200px 600px at 20% -10%,#eef2ff,transparent),
     radial-gradient(1000px 500px at 100% 20%,#fde7f3,transparent),
     linear-gradient(135deg,#eef2ff 0%, #faf5ff 45%, #fff1f2 100%);
     min-height:100%;
 }
+
 .container{max-width:1100px;margin:0 auto;padding:24px}
+
+.header{display:flex; align-items:center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
 .title{
     text-align:center;margin:0 0 36px;font-weight:900;
     font-size:clamp(24px,4vw,40px);
     background:linear-gradient(90deg,#7c3aed,#db2777,#f97316);
     -webkit-background-clip:text;background-clip:text;color:transparent;
 }
+
+.toggle{ display:flex; align-items:center; gap:10px; background:#f0f3f9; padding:10px 12px; border-radius: 12px; width: fit-content; }
 
 /* ===== Lưới 2 cột ===== */
 .grid{display:grid;gap:24px}
@@ -93,3 +103,43 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Aria
 .btn-outline:hover{background:#e0e7ff}
 .btn-primary{color:#fff; background:linear-gradient(90deg,#7c3aed,#db2777)}
 .btn-primary:hover{filter:brightness(.95)}
+
+/* Chế độ ít kích thích: nền phẳng, bỏ bóng/gradient mạnh */
+.low-stimulus body, body.low-stimulus{ background: #f6f7f9; }
+.low-stimulus .btn, body.low-stimulus .btn{ box-shadow: none; }
+.low-stimulus .hero, body.low-stimulus .hero{ background: none; background-color: #f2f6fa; }
+
+/* --- Tuyết rơi nhẹ --- */
+.snow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.snowflake{
+    position: absolute;
+    top: -2rem;
+    width: 120px; height: 80px; /* Fallback kích thước lớn nếu JS chưa load */
+    border-radius: 50%; /* Hình tròn, có thể thay bằng 0 để vuông */
+    background: rgba(255,255,255,0.95); /* Nền trắng trong suốt nhẹ */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); /* Shadow để nổi bật */
+    opacity: 1; /* Max opacity */
+    animation: fall linear var(--dur,12s) var(--delay,0s) infinite;
+}
+
+@keyframes fall{
+    0%   { transform: translate3d(var(--x,0), -2rem, 0) rotate(0deg); opacity: 0; }
+    5%   { opacity: 0.95; }
+    100% { transform: translate3d(var(--x,0), 110vh, 0) rotate(360deg); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .snowflake{ animation-duration: calc(var(--dur,12s) * 2); opacity: 0.7; }
+}
+
+.low-stimulus .snowflake, body.low-stimulus .snowflake{
+    animation: none !important;
+    display: none !important;
+}

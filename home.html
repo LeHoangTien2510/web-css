@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Trang chủ | Cảm xúc cùng bé</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+<div class="container">
+    <div class="header" role="banner">
+        <div class="brand"><span class="dot" aria-hidden="true"></span> Cảm xúc cùng bé</div>
+        <div class="toggle">
+            <input id="ls3" type="checkbox" aria-label="Bật chế độ ít kích thích">
+            <label for="ls3">Chế độ ít kích thích</label>
+        </div>
+    </div>
+
+    <main class="card hero" role="main">
+        <div class="kicker">Trang chủ</div>
+        <h1 class="h1">Chọn hoạt động luyện tập</h1>
+        <p class="sub">Mỗi hoạt động chỉ có 1 mục tiêu rõ ràng. Thời lượng ngắn để tránh quá tải.</p>
+
+        <section class="grid" role="list">
+            <!-- Game 1 -->
+            <article class="card game-card" role="listitem" aria-labelledby="g1">
+                <div class="icon" aria-hidden="true">🃏</div>
+                <h3 id="g1">Flashcard tình huống → cảm xúc</h3>
+                <p>Xem 1 tình huống đơn giản và chọn cảm xúc phù hợp (buồn / tức giận / sợ...).</p>
+                <a class="btn" href="#" onclick="alert('Đi tới flashcard (mẫu).'); return false;">Bắt đầu</a>
+            </article>
+
+            <!-- Game 2 -->
+            <article class="card game-card" role="listitem" aria-labelledby="g2">
+                <div class="icon" aria-hidden="true">🖼️</div>
+                <h3 id="g2">1 ảnh – 4 lựa chọn cảm xúc</h3>
+                <p>Chọn cảm xúc đúng cho 1 khuôn mặt. Phản hồi nhẹ nhàng sau mỗi lượt.</p>
+                <a class="btn" href="EmotionMultipleChoices.html" onclick="alert('Đi tới quiz (mẫu).');">Bắt đầu</a>
+            </article>
+
+            <!-- Game 3 -->
+            <article class="card game-card" role="listitem" aria-labelledby="g3">
+                <div class="icon" aria-hidden="true">🤳</div>
+                <h3 id="g3">Luyện tập với AI (chụp ảnh)</h3>
+                <p>Chụp ảnh khuôn mặt; AI gợi ý cảm xúc (ví dụ: vui, buồn, lo lắng). Ảnh mặc định không rời thiết bị.</p>
+                <div class="small">Gợi ý: Thử cười nhẹ hoặc cau mày để so sánh kết quả.</div>
+                <div class="mt-4">
+                    <input type="file" id="cameraInput" accept="image/*" capture="user" aria-label="Chụp ảnh bằng máy ảnh">
+                    <button class="btn mt-3" id="analyzeBtn" disabled>Đánh giá bằng AI (mẫu)</button>
+                </div>
+                <p id="aiResult" class="small" aria-live="polite"></p>
+            </article>
+        </section>
+
+        <div class="footer small">
+            Lưu ý: Chức năng AI hiện là bản mẫu. Bạn có thể kết nối bất kỳ API Computer Vision nào (Google, AWS, Azure, on-device) qua hàm <code>analyzeImage()</code>.
+        </div>
+    </main>
+
+    <p class="footer">© 2025 Cảm xúc cùng bé</p>
+</div>
+
+<!-- Lớp tuyết rơi rất nhẹ (tự tắt ở chế độ ít kích thích) -->
+<div id="snow" class="snow" aria-hidden="true"></div>
+
+<script src="home.js"></script>
+</body>
+</html>

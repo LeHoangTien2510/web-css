@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Autism Emotion Helper</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+<div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="logo">😊</div>
+            <div class="title">Autism Emotion<br/>Helper</div>
+        </div>
+        <nav class="nav">
+            <a class="nav-item active" href="#">
+                <span class="icon">🏠</span>
+                <span class="label">Trang chủ</span>
+            </a>
+            <a class="nav-item" href="#">
+                <span class="icon">📈</span>
+                <span class="label">Tiến độ học tập</span>
+            </a>
+            <a class="nav-item" href="#">
+                <span class="icon">📚</span>
+                <span class="label">Truyện xã hội</span>
+            </a>
+            <a class="nav-item" href="#">
+                <span class="icon">😊</span>
+                <span class="label">Bài tập cảm xúc</span>
+            </a>
+            <a class="nav-item" href="#">
+                <span class="icon">🎁</span>
+                <span class="label">Kho phần thưởng</span>
+            </a>
+        </nav>
+        <div class="profile">
+            <div class="avatar">🧒</div>
+            <div>
+                <div class="name">An</div>
+                <div class="muted">8 tuổi</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+        <header class="topbar">
+            <div class="badge">
+                <span class="emoji">⭐</span>
+                <span id="points">0</span> điểm
+            </div>
+            <div class="spacer"></div>
+            <div class="pill" title="Nhắc nhở"><span>🔔</span></div>
+            <div class="pill" title="Cài đặt"><span>⚙️</span></div>
+            <div class="date" id="today"></div>
+        </header>
+
+        <!-- Stat cards -->
+        <section class="stats" id="stats"></section>
+
+        <!-- Module cards -->
+        <section class="grid" id="modules"></section>
+    </main>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>

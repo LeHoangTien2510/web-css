@@ -8,7 +8,13 @@
 </head>
 <body class="app-bg">
 <div class="container">
-    <h1 class="title">Nhận diện cảm xúc</h1>
+    <div class="header" role="banner">
+        <h1 class="title">Nhận diện cảm xúc</h1>
+        <div class="toggle">
+            <input id="ls4" type="checkbox" aria-label="Bật chế độ ít kích thích">
+            <label for="ls4">Chế độ ít kích thích</label>
+        </div>
+    </div>
 
     <div class="grid">
         <!-- Bên trái: khuôn mặt -->
@@ -60,40 +66,9 @@
     </div>
 </div>
 
-<script>
-    // Cấu hình đáp án đúng
-    const CORRECT = 'happy';
+<!-- Lớp tuyết rơi rất nhẹ (tự tắt ở chế độ ít kích thích) -->
+<div id="snow" class="snow" aria-hidden="true"></div>
 
-    const options = document.querySelectorAll('.option');
-    const feedback = document.getElementById('feedback');
-    let selected = null;
-
-    function selectOption(btn) {
-        options.forEach(o => o.classList.remove('selected', 'color-purple', 'color-blue', 'color-red', 'color-amber'));
-        btn.classList.add('selected', `color-${btn.dataset.color}`);
-        selected = btn.dataset.id;
-
-        const isCorrect = selected === CORRECT;
-        feedback.className = 'feedback ' + (isCorrect ? 'feedback-correct' : 'feedback-incorrect');
-        feedback.textContent = isCorrect
-            ? `Đúng rồi! ✨ Là "${btn.querySelector('.label').textContent}".`
-            : `Hãy thử lại! 💪 Đáp án đúng là "Vui".`;
-    }
-
-    options.forEach(btn => {
-        btn.addEventListener('click', () => selectOption(btn));
-        // Keyboard accessibility
-        btn.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectOption(btn); }
-        });
-    });
-
-    document.getElementById('newImage').addEventListener('click', () => {
-        options.forEach(o => o.classList.remove('selected', 'color-purple', 'color-blue', 'color-red', 'color-amber'));
-        selected = null;
-        feedback.className = 'feedback feedback-neutral';
-        feedback.textContent = 'Chọn 1 đáp án để kiểm tra.';
-    });
-</script>
+<script src="EmotionMultipleChoices.js"></script>
 </body>
 </html>
